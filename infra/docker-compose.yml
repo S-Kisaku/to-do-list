@@ -1,0 +1,15 @@
+services:
+    mysql:
+        build: ./mysql
+        ports:
+        - 3306:3306
+
+    express:
+        build: ./express
+        volumes:
+        - ../app:/usr/src/app
+        working_dir: /usr/src/app
+        ports:
+            - 3000:3000
+        command: bash -c "npm install && npm start"
+        # command: "npm start"
