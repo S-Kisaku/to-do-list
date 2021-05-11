@@ -5,11 +5,11 @@ make init
 
 #expressのサーバーに入る
 cd app/infra
-make express
+make exec-express
 
 #dbのサーバーに入る
 cd app/infra
-make mysql
+make exec-mysql
 
 # dbの設計 ##########################################
 - dbの種類:mysql
@@ -22,10 +22,9 @@ make mysql
 - テンプレートエンジンはejs
 　　N予備だと pug ってやつを使うけど今回はejs
 - ORMを使用してください
-　　ORMとは　"SELCT * FROM users;"
-　　みたいなデータベースの操作を簡単にするやつ！
 
- 参考 https://tech.cloud-blazer.com/laravel-orm/
+ 参考 https://qiita.com/y4u0t2a1r0/items/fb7a879cdd2a187bad29
+ N予備 第3章の23
 
 最後に....
   #　わかんねってなったら迷わず箕作まで

@@ -1,3 +1,5 @@
+explain:
+	echo "このMakefileはdocker-compose の操作を楽にするものです"
 build:
 	docker-compose build --no-cache --force-rm
 up:
@@ -19,9 +21,9 @@ start:
 restart:
 	@make down
 	@make up
-express:
+exec-express:
 	docker-compose exec express bash
-mysql:
+exec-mysql:
 	docker-compose exec mysql bash
 sql:
 	docker-compose exec mysql bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
