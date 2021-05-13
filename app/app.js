@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 
 var indexRouter = require('./routes/index');
+var tasksRouter = require('./routes/tasks');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/tasks', tasksRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
@@ -37,20 +39,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-// // db stepup
-const mysql = require('mysql2');
-const db = mysql.createConnection({
-  host: 'mysql',
-  user: 'dev',
-  password: 'dev',
-  database: 'to_do_list'
-});
-
-db.connect(function(err) {
-  if (err) throw err;
-  console.log('Connected');
 });
 
 module.exports = app;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="add-form">
+        <form action="/tasks/add" method="post">
+            <input type="text" placeholder="タスクを入力してください" name="task" required="true">
+            <button>追加</button>
+        </form>
+    </div>
+    <div class="list">
+        <span>タスク一覧</span>
+        <% if(tasks != ""){%>
+        <table>
+                <tbody>
+                    <tr>
+                        <th>タスク名</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <% tasks.forEach((datas) => {%>
+                        <tr>
+                            <th><%= datas['task']%></th>
+                            <th><a href="/tasks/edit/<%= datas['id']%>">編集</a></th>
+                            <th>
+                                <form action="/tasks/delete/<%= datas['id']%>" method="post">
+                                    <input type="submit" value="削除">
+                                </form>
+                            </th>
+                        </tr>
+                    <% })%>
+                </tbody>
+                
+            
+        </table>
+        <% }%>
+    </div>
+    <a href="/">Topページに戻る</a>
+</body>
+</html>
