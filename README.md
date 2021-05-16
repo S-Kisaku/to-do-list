@@ -35,9 +35,11 @@ make init
 cd app/infra
 make exec-express
 
-#dbのサーバーに入る
+#mysqlのサーバーに入る
 cd app/infra
 make exec-mysql
+mysql -u dev -p
+dev
 
 # dbの設計 ##########################################
 - dbの種類:mysql
